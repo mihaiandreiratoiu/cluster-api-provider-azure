@@ -124,6 +124,10 @@ type AzureMachineSpec struct {
 	// +optional
 	SecurityProfile *SecurityProfile `json:"securityProfile,omitempty"`
 
+	// EnableFIPS allows the ability to use FIPS enabled virtual machines.
+	// +optional
+	EnableFIPS bool `json:"enableFIPS,omitempty"`
+
 	// Deprecated: SubnetName should be set in the networkInterfaces field.
 	// +optional
 	SubnetName string `json:"subnetName,omitempty"`

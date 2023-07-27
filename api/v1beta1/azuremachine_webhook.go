@@ -165,6 +165,13 @@ func (mw *azureMachineWebhook) ValidateUpdate(ctx context.Context, oldObj, newOb
 	}
 
 	if err := webhookutils.ValidateImmutable(
+		field.NewPath("Spec", "EnableFIPS"),
+		old.Spec.EnableFIPS,
+		m.Spec.EnableFIPS); err != nil {
+		allErrs = append(allErrs, err)
+	}
+
+	if err := webhookutils.ValidateImmutable(
 		field.NewPath("Spec", "SpotVMOptions"),
 		old.Spec.SpotVMOptions,
 		m.Spec.SpotVMOptions); err != nil {
