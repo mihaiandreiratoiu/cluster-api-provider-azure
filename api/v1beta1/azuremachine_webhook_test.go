@@ -725,6 +725,34 @@ func TestAzureMachine_ValidateUpdate(t *testing.T) {
 			wantErr: false,
 		},
 		{
+			name: "invalidTest: azuremachine.spec.EnableFIPS is immutable",
+			oldMachine: &AzureMachine{
+				Spec: AzureMachineSpec{
+					EnableFIPS: true,
+				},
+			},
+			newMachine: &AzureMachine{
+				Spec: AzureMachineSpec{
+					EnableFIPS: false,
+				},
+			},
+			wantErr: true,
+		},
+		{
+			name: "validTest: azuremachine.spec.EnableFIPS is immutable",
+			oldMachine: &AzureMachine{
+				Spec: AzureMachineSpec{
+					EnableFIPS: true,
+				},
+			},
+			newMachine: &AzureMachine{
+				Spec: AzureMachineSpec{
+					EnableFIPS: true,
+				},
+			},
+			wantErr: false,
+		},
+		{
 			name: "validTest: azuremachine.spec.Diagnostics should not error on updating nil diagnostics",
 			oldMachine: &AzureMachine{
 				Spec: AzureMachineSpec{},
