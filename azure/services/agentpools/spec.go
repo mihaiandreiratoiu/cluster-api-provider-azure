@@ -124,6 +124,9 @@ type AgentPoolSpec struct {
 	// EnableNodePublicIP controls whether or not nodes in the agent pool each have a public IP address.
 	EnableNodePublicIP *bool `json:"enableNodePublicIP,omitempty"`
 
+	// EnableFIPS allows the ability to use FIPS enabled virtual machines.
+	EnableFIPS *bool `json:"EnableFIPS,omitempty"`
+
 	// NodePublicIPPrefixID specifies the public IP prefix resource ID which VM nodes should use IPs from.
 	NodePublicIPPrefixID *string `json:"nodePublicIPPrefixID,omitempty"`
 
